@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - recommend_book
+  - inquire_book
+  - inquire_author
+
+entities:
+  - author
+  - title
+  - description
+  - genre
+
+slots:
+  author:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: author
+  title:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: title
+  description:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: description
+  genre:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: genre
+
+responses:
+  utter_greet:
+  - text: "Hello! I can recommend a book for you. What are you in the mood to read?"
+  - text: "Hi there! Looking for a good book? What are you in the mood to read?"
+
+  utter_ask_more:
+  - text: "Do you want me to recommend anything else?"
+
+  utter_goodbye:
+  - text: "Happy reading, goodbye!"
+
+  utter_happy:
+    - text: "It's great to hear you're feeling good! How can I assist you today?"
+    - text: "I'm glad you're in high spirits! Is there something specific you're looking for?"
+
+  utter_cheer_up:
+  - text: "I'm here to help. Let's find you a book to lift your spirits."
+  
+  utter_did_that_help:
+  - text: "Did that recommendation help you find what you were looking for?"
+
+  utter_iamabot:
+  - text: "I am a bot that loves to recommend books!"
+
+actions:
+  - action_recommend_book
+  - action_inquire_book_details
+  - action_inquire_author_details
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

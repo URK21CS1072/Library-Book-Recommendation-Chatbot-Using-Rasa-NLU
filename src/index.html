@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rasa lib chatbot</title>
+        <style>
+            .background-image{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background-image: url('https://img.freepik.com/premium-photo/futuristic-library-data-center-style-space-future-generative-ai_124507-79882.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="background-image"></div>
+        <div id="rasa-chat-widget" data-websocket-url="http://localhost:8098/socket.io"></div>
+        <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
+    </body>
+</html>
