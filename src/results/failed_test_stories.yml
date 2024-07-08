@@ -1,0 +1,45 @@
+version: "3.1"
+stories:
+- story: recommend book by author (.\tests\test_stories.yml)
+  steps:
+  - intent: recommend_book  # predicted: recommend_book: I'm looking for books by [Marilynne Robinson](author).
+  - action: action_recommend_book
+  - action: action_listen  # predicted: utter_ask_more
+- story: recommend book by genre (.\tests\test_stories.yml)
+  steps:
+  - intent: recommend_book  # predicted: recommend_book: Do you have any [Friendship](genre) books?
+  - action: action_recommend_book
+  - action: action_listen  # predicted: utter_ask_more
+- story: happy path 1 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great  # predicted: greet: amazing
+  - action: utter_happy
+- story: happy path 2 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great  # predicted: greet: amazing
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+- story: sad path 1 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm  # predicted: goodbye: yes
+  - action: utter_happy  # predicted: utter_goodbye
+- story: Inquire book details (.\tests\test_stories.yml)
+  steps:
+  - intent: inquire_book  # predicted: inquire_book: Tell me about the book [Gilead](title).
+  - action: action_inquire_book_details  # predicted: utter_happy
+  - action: action_listen  # predicted: utter_ask_more
+- story: inquire book by author (.\tests\test_stories.yml)
+  steps:
+  - intent: inquire_author  # predicted: inquire_author: Tell me about the author [Sidney Sheldon](author).
+  - action: action_inquire_author_details
+  - action: action_listen  # predicted: utter_ask_more
