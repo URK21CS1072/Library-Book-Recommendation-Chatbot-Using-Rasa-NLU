@@ -9,8 +9,6 @@ In  response  to  the  growing  demand  for streamlined  library  management,  t
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Customization](#customization)
-- [Deployment](#deployment)
 
 
 ## Features
